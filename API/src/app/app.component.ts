@@ -1,0 +1,18 @@
+import { Component, inject } from '@angular/core';
+
+import { AvailablePlacesComponent } from './places/available-places/available-places.component';
+import { UserPlacesComponent } from './places/user-places/user-places.component';
+import { ErrorModalComponent } from './shared/modal/error-modal/error-modal.component';
+import { ErrorService } from './shared/error.service';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css',
+  imports: [AvailablePlacesComponent, UserPlacesComponent, ErrorModalComponent],
+})
+export class AppComponent {
+  private errorSerivce = inject(ErrorService);
+  error = this.errorSerivce.error;
+}
